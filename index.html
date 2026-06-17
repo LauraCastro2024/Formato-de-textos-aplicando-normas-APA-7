@@ -1,0 +1,1262 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Taller de formato en Google Docs aplicando APA 7</title>
+<meta name="description" content="Recurso Educativo Abierto para aplicar el formato APA 7.ª edición en Google Docs. Taller práctico de configuración, estilos, portada, citas y referencias.">
+
+<style>
+  :root{
+    --tinta:#15242b;
+    --papel:#f4f1ea;
+    --papel2:#ece7db;
+    --acento:#c4452f;
+    --acento2:#1f6f6b;
+    --linea:#d8d2c4;
+    --gris:#5d6a6e;
+    --ok:#2c7a4b;
+    --okbg:#e6f2ea;
+    --mal:#c4452f;
+    --sans:'Segoe UI',system-ui,-apple-system,sans-serif;
+    --serif:Georgia,'Times New Roman',serif;
+  }
+
+  *{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+  }
+
+  html{
+    scroll-behavior:smooth;
+  }
+
+  body{
+    font-family:var(--sans);
+    color:var(--tinta);
+    background:var(--papel);
+    line-height:1.65;
+    font-size:17px;
+  }
+
+  a{
+    color:var(--acento);
+  }
+
+  code{
+    background:var(--papel2);
+    padding:1px 6px;
+    border-radius:4px;
+    font-size:13px;
+  }
+
+  .wrap{
+    max-width:900px;
+    margin:0 auto;
+    padding:0 24px;
+  }
+
+  header.top{
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:var(--tinta);
+    color:#fff;
+  }
+
+  header.top .wrap{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-top:14px;
+    padding-bottom:14px;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+
+  .brand{
+    font-weight:700;
+    font-size:15px;
+    letter-spacing:.5px;
+  }
+
+  .brand small{
+    display:block;
+    font-weight:400;
+    font-size:11px;
+    color:#a9b6ba;
+    letter-spacing:1.5px;
+    text-transform:uppercase;
+  }
+
+  nav.menu{
+    display:flex;
+    gap:4px;
+    flex-wrap:wrap;
+  }
+
+  nav.menu a{
+    color:#cdd6d8;
+    text-decoration:none;
+    font-size:13px;
+    padding:6px 10px;
+    border-radius:6px;
+  }
+
+  nav.menu a:hover{
+    background:rgba(255,255,255,.1);
+    color:#fff;
+  }
+
+  .hero{
+    background:var(--acento);
+    color:#fff;
+    padding:64px 0 56px;
+    position:relative;
+    overflow:hidden;
+  }
+
+  .hero .wrap{
+    position:relative;
+    z-index:2;
+  }
+
+  .hero .eyebrow{
+    font-size:13px;
+    letter-spacing:2.5px;
+    text-transform:uppercase;
+    color:#f6d3cb;
+    margin-bottom:18px;
+  }
+
+  .hero h1{
+    font-family:var(--serif);
+    font-size:clamp(34px,6vw,54px);
+    line-height:1.08;
+    font-weight:700;
+    margin-bottom:18px;
+  }
+
+  .hero p.lead{
+    font-size:19px;
+    max-width:690px;
+    color:#fbe7e2;
+  }
+
+  .hero .meta{
+    margin-top:28px;
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+  }
+
+  .hero .meta span{
+    background:rgba(255,255,255,.16);
+    border:1px solid rgba(255,255,255,.35);
+    padding:7px 15px;
+    border-radius:999px;
+    font-size:13px;
+    font-weight:600;
+    color:#fff;
+  }
+
+  .hero .blob{
+    position:absolute;
+    border-radius:50%;
+    background:rgba(255,255,255,.07);
+  }
+
+  .hero .blob.a{
+    width:380px;
+    height:380px;
+    right:-120px;
+    top:-120px;
+  }
+
+  .hero .blob.b{
+    width:240px;
+    height:240px;
+    right:120px;
+    bottom:-150px;
+    background:rgba(255,255,255,.05);
+  }
+
+  section{
+    padding:56px 0;
+    border-bottom:1px solid var(--linea);
+  }
+
+  section.alt{
+    background:var(--papel2);
+  }
+
+  .kicker{
+    display:inline-block;
+    font-size:12px;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    color:var(--acento);
+    font-weight:700;
+    margin-bottom:10px;
+  }
+
+  h2{
+    font-family:var(--serif);
+    font-size:clamp(26px,4vw,34px);
+    font-weight:700;
+    margin-bottom:8px;
+    line-height:1.15;
+  }
+
+  h3{
+    font-size:20px;
+    margin:26px 0 10px;
+    font-weight:600;
+  }
+
+  section > .wrap > p{
+    margin-bottom:14px;
+  }
+
+  .muted{
+    color:var(--gris);
+  }
+
+  .lead2{
+    font-size:18px;
+    color:var(--gris);
+    margin-bottom:8px;
+  }
+
+  .pills{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin-top:18px;
+  }
+
+  .pill{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:#fff;
+    border:1px solid var(--linea);
+    color:var(--tinta);
+    padding:8px 15px;
+    border-radius:999px;
+    font-size:14px;
+    font-weight:700;
+    box-shadow:0 2px 8px rgba(0,0,0,.04);
+  }
+
+  .pill span{
+    color:var(--acento2);
+  }
+
+  .grid{
+    display:grid;
+    gap:16px;
+    margin-top:24px;
+  }
+
+  .grid.c2{
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  }
+
+  .grid.c3{
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  }
+
+  .card{
+    background:#fff;
+    border:1px solid var(--linea);
+    border-radius:12px;
+    padding:22px;
+  }
+
+  .card h4{
+    font-size:17px;
+    margin-bottom:6px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+  }
+
+  .card .ico{
+    width:30px;
+    height:30px;
+    border-radius:8px;
+    background:var(--acento);
+    color:#fff;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:15px;
+    font-weight:700;
+    flex-shrink:0;
+  }
+
+  .card.teal .ico{
+    background:var(--acento2);
+  }
+
+  .card p{
+    font-size:15px;
+    color:var(--gris);
+    margin:0;
+  }
+
+  .tabla{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:18px;
+    font-size:15px;
+    background:#fff;
+    border:1px solid var(--linea);
+    border-radius:12px;
+    overflow:hidden;
+  }
+
+  .tabla th{
+    background:var(--tinta);
+    color:#fff;
+    text-align:left;
+    padding:11px 14px;
+    font-size:13px;
+    letter-spacing:.5px;
+  }
+
+  .tabla td{
+    padding:11px 14px;
+    border-top:1px solid var(--linea);
+    vertical-align:top;
+  }
+
+  .tabla tr:nth-child(even) td{
+    background:var(--papel);
+  }
+
+  .ejemplo{
+    background:#fff;
+    border-left:4px solid var(--acento2);
+    padding:14px 18px;
+    border-radius:0 10px 10px 0;
+    margin:14px 0;
+    font-family:var(--serif);
+    font-size:16px;
+  }
+
+  .ejemplo .et{
+    display:block;
+    font-family:var(--sans);
+    font-size:12px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    color:var(--acento2);
+    font-weight:700;
+    margin-bottom:6px;
+  }
+
+  .tool{
+    background:#fff;
+    border:1px solid var(--linea);
+    border-radius:16px;
+    padding:26px;
+    margin-top:24px;
+  }
+
+  .tool h3{
+    margin-top:0;
+  }
+
+  .barra{
+    height:8px;
+    background:var(--papel2);
+    border-radius:999px;
+    overflow:hidden;
+    margin:14px 0 22px;
+  }
+
+  .barra > div{
+    height:100%;
+    width:0;
+    background:var(--acento2);
+    transition:width .25s;
+  }
+
+  .chk{
+    display:flex;
+    gap:13px;
+    align-items:flex-start;
+    padding:13px 15px;
+    border:1px solid var(--linea);
+    border-radius:10px;
+    cursor:pointer;
+    margin-bottom:9px;
+    transition:border-color .15s,background .15s;
+  }
+
+  .chk:hover{
+    border-color:var(--acento2);
+  }
+
+  .chk .box{
+    flex-shrink:0;
+    width:22px;
+    height:22px;
+    border:2px solid var(--linea);
+    border-radius:6px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-top:1px;
+    font-weight:700;
+    color:#fff;
+    font-size:14px;
+    transition:.15s;
+  }
+
+  .chk.on .box{
+    background:var(--acento2);
+    border-color:var(--acento2);
+  }
+
+  .chk .txt b{
+    display:block;
+    font-size:15px;
+  }
+
+  .chk .txt span{
+    font-size:13px;
+    color:var(--gris);
+  }
+
+  .finok{
+    display:none;
+    margin-top:18px;
+    padding:14px 18px;
+    background:var(--okbg);
+    color:var(--ok);
+    border-radius:10px;
+    font-weight:600;
+  }
+
+  .ba{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:18px;
+    margin-top:22px;
+  }
+
+  .doc{
+    border:1px solid var(--linea);
+    border-radius:12px;
+    overflow:hidden;
+    background:#fff;
+    font-family:var(--serif);
+    font-size:12.5px;
+  }
+
+  .doc .tag{
+    font-family:var(--sans);
+    font-weight:700;
+    font-size:12px;
+    letter-spacing:1px;
+    text-transform:uppercase;
+    padding:8px 14px;
+    color:#fff;
+  }
+
+  .doc.bad .tag{
+    background:var(--mal);
+  }
+
+  .doc.good .tag{
+    background:var(--ok);
+  }
+
+  .doc .page{
+    padding:18px 20px;
+    line-height:1.5;
+  }
+
+  .doc.bad .page{
+    text-align:justify;
+    font-family:'Comic Sans MS',cursive;
+  }
+
+  .doc.good .page{
+    text-align:left;
+  }
+
+  .doc .t1{
+    font-weight:700;
+    text-align:center;
+    margin-bottom:8px;
+  }
+
+  .doc.good .t1{
+    margin-bottom:14px;
+  }
+
+  .doc .ind{
+    text-indent:24px;
+    margin-bottom:6px;
+  }
+
+  .doc .note{
+    font-family:var(--sans);
+    font-size:11px;
+    color:var(--gris);
+    padding:0 20px 14px;
+  }
+
+  .tip{
+    background:var(--okbg);
+    border:1px solid #bfe0cd;
+    border-radius:10px;
+    padding:14px 18px;
+    margin:16px 0;
+    font-size:15px;
+  }
+
+  .tip b{
+    color:var(--ok);
+  }
+
+  .volver{
+    position:fixed;
+    right:18px;
+    bottom:18px;
+    background:var(--acento2);
+    color:#fff;
+    padding:10px 14px;
+    border-radius:999px;
+    text-decoration:none;
+    font-size:14px;
+    box-shadow:0 4px 12px rgba(0,0,0,.2);
+    z-index:80;
+  }
+
+  footer{
+    background:var(--tinta);
+    color:#cdd6d8;
+    padding:48px 0;
+    font-size:14px;
+  }
+
+  footer h4{
+    color:#fff;
+    font-size:15px;
+    margin-bottom:10px;
+  }
+
+  .cc{
+    margin-top:20px;
+    padding-top:20px;
+    border-top:1px solid rgba(255,255,255,.12);
+    font-size:13px;
+    color:#90a0a4;
+  }
+
+  @media(max-width:600px){
+    body{
+      font-size:16px;
+    }
+
+    section{
+      padding:40px 0;
+    }
+
+    nav.menu{
+      display:flex;
+      overflow-x:auto;
+      flex-wrap:nowrap;
+      width:100%;
+      padding-top:8px;
+    }
+
+    nav.menu a{
+      white-space:nowrap;
+    }
+
+    .volver{
+      font-size:13px;
+      padding:9px 12px;
+    }
+  }
+</style>
+</head>
+
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand">
+      Taller de formato en Google Docs
+      <small>Aplicación práctica de APA 7.ª edición</small>
+    </div>
+
+    <nav class="menu" aria-label="Navegación principal del recurso">
+      <a href="#inicio">Inicio</a>
+      <a href="#proposito">Propósito</a>
+      <a href="#formato">Formato</a>
+      <a href="#portada">Portada</a>
+      <a href="#titulos">Títulos</a>
+      <a href="#citas">Citas</a>
+      <a href="#referencias">Referencias</a>
+      <a href="#practica">Práctica</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero" id="inicio">
+  <div class="blob a"></div>
+  <div class="blob b"></div>
+
+  <div class="wrap">
+    <div class="eyebrow">Material elaborado por Ed. Téc. Laura Castro</div>
+
+    <h1>Taller de formato en Google Docs aplicando APA 7.ª edición</h1>
+
+    <p class="lead">
+      En este taller no vamos a estudiar nuevamente las normas APA, sino a ponerlas en práctica.
+      El objetivo es configurar un documento académico en Google Docs, aplicar estilos,
+      ordenar la portada, revisar citas y referencias, e identificar los ajustes necesarios
+      para una presentación formal y prolija.
+    </p>
+
+    <div class="meta">
+      <span>Google Docs</span>
+      <span>APA 7.ª edición</span>
+      <span>Licencia abierta CC BY-SA 4.0</span>
+    </div>
+  </div>
+</div>
+
+<section id="proposito">
+  <div class="wrap">
+    <span class="kicker">Para empezar</span>
+    <h2>Propósito del taller</h2>
+
+    <p class="lead2">
+      Esta propuesta está pensada como una instancia práctica de edición y formateo.
+      Los estudiantes ya cuentan con conocimientos previos sobre normas APA 7.ª edición;
+      por eso, el trabajo se centrará en aplicar esos criterios dentro de Google Docs.
+    </p>
+
+    <div class="pills">
+      <div class="pill"><span>●</span> Google Docs</div>
+      <div class="pill"><span>●</span> APA 7.ª edición</div>
+      <div class="pill"><span>●</span> Licencia abierta CC BY-SA 4.0</div>
+    </div>
+
+    <div class="grid c3">
+      <div class="card">
+        <h4><span class="ico">1</span> Configurar</h4>
+        <p>Ajustar página, márgenes, fuente, interlineado, alineación, sangría y numeración.</p>
+      </div>
+
+      <div class="card">
+        <h4><span class="ico">2</span> Aplicar estilos</h4>
+        <p>Usar estilos de párrafo para ordenar títulos, subtítulos y cuerpo del texto.</p>
+      </div>
+
+      <div class="card">
+        <h4><span class="ico">3</span> Revisar entrega</h4>
+        <p>Verificar portada, citas, referencias y permisos antes de compartir el documento.</p>
+      </div>
+    </div>
+
+    <div class="tip">
+      <b>Objetivo del taller:</b> aplicar en Google Docs el formato APA 7.ª edición,
+      fortaleciendo el uso técnico del procesador de texto para la presentación de trabajos académicos.
+    </div>
+  </div>
+</section>
+
+<section id="formato" class="alt">
+  <div class="wrap">
+    <span class="kicker">Tema 1</span>
+    <h2>Configuración inicial en Google Docs</h2>
+
+    <p>
+      En esta etapa se realiza la configuración técnica del documento. No se trata de memorizar
+      la norma, sino de ubicar cada opción en Google Docs y aplicarla correctamente al trabajo
+      que se va a entregar.
+    </p>
+
+    <table class="tabla">
+      <thead>
+        <tr>
+          <th>Elemento</th>
+          <th>Criterio APA 7</th>
+          <th>Ruta sugerida en Google Docs</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td><b>Tamaño de página</b></td>
+          <td>Tamaño carta.</td>
+          <td><code>Archivo → Configuración de página → Tamaño: Carta</code></td>
+        </tr>
+
+        <tr>
+          <td><b>Márgenes</b></td>
+          <td>2.54 cm en la parte superior, inferior, izquierda y derecha.</td>
+          <td><code>Archivo → Configuración de página → Márgenes</code></td>
+        </tr>
+
+        <tr>
+          <td><b>Fuente</b></td>
+          <td>Arial 11, Calibri 11, Times New Roman 12, Georgia 11 o fuente admitida por APA.</td>
+          <td><code>Barra de herramientas → Fuente y tamaño</code></td>
+        </tr>
+
+        <tr>
+          <td><b>Color de fuente</b></td>
+          <td>Texto en negro automático.</td>
+          <td><code>Barra de herramientas → Color de texto</code></td>
+        </tr>
+
+        <tr>
+          <td><b>Interlineado</b></td>
+          <td>Doble espacio en el documento.</td>
+          <td><code>Formato → Interlineado y espaciado → Doble</code></td>
+        </tr>
+
+        <tr>
+          <td><b>Espacio entre párrafos</b></td>
+          <td>Sin espacio adicional antes ni después de los párrafos.</td>
+          <td><code>Formato → Interlineado y espaciado → Quitar espacio antes/después</code></td>
+        </tr>
+
+        <tr>
+          <td><b>Alineación</b></td>
+          <td>Alineación izquierda. No justificar.</td>
+          <td><code>Formato → Alinear y aplicar sangría → Izquierda</code></td>
+        </tr>
+
+        <tr>
+          <td><b>Sangría de párrafo</b></td>
+          <td>Primera línea de cada párrafo a 1.27 cm.</td>
+          <td><code>Formato → Alinear y aplicar sangría → Opciones de sangría → Sangría especial → Primera línea</code></td>
+        </tr>
+
+        <tr>
+          <td><b>Número de página</b></td>
+          <td>Esquina superior derecha en todas las páginas, incluida la portada.</td>
+          <td><code>Insertar → Números de página</code></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip">
+      <b>Atención:</b> el formato debe aplicarse de manera uniforme en todo el documento.
+      No alcanza con corregir una parte: portada, cuerpo del texto y referencias deben mantener coherencia visual.
+    </div>
+  </div>
+</section>
+
+<section id="portada">
+  <div class="wrap">
+    <span class="kicker">Tema 2</span>
+    <h2>Portada del trabajo académico</h2>
+
+    <p>
+      La portada es la página de presentación del trabajo. Debe organizar los datos principales
+      en bloques claros y centrados, manteniendo la misma fuente seleccionada para todo el documento.
+    </p>
+
+    <div class="ba">
+      <div class="doc good">
+        <div class="tag">Modelo de portada</div>
+
+        <div class="page" style="min-height:240px;display:flex;flex-direction:column;justify-content:center;text-align:center;gap:14px">
+          <div><b>Título del trabajo académico</b></div>
+          <div>Nombre y apellido del estudiante</div>
+          <div>Institución</div>
+          <div>Unidad curricular o curso</div>
+          <div>Nombre del docente</div>
+          <div>Fecha de entrega</div>
+        </div>
+      </div>
+
+      <div class="card teal" style="align-self:center">
+        <h4><span class="ico">✓</span> Qué incluye</h4>
+        <p style="margin-bottom:10px">Título del trabajo centrado y en negrita.</p>
+        <p style="margin-bottom:10px">Nombre del estudiante.</p>
+        <p style="margin-bottom:10px">Institución o centro educativo.</p>
+        <p style="margin-bottom:10px">Unidad curricular, docente y fecha.</p>
+        <p>Número de página en la esquina superior derecha.</p>
+      </div>
+    </div>
+
+    <div class="tip">
+      <b>Formato de la portada:</b> la portada debe realizarse con la misma fuente seleccionada
+      para todo el documento: <b>Arial 11</b> o <b>Times New Roman 12</b>. El título va centrado
+      y en negrita; los demás datos van centrados, sin negrita.
+    </div>
+  </div>
+</section>
+
+<section id="titulos" class="alt">
+  <div class="wrap">
+    <span class="kicker">Tema 3</span>
+    <h2>Aplicación de títulos y estilos</h2>
+
+    <p>
+      En Google Docs, los títulos no deberían modificarse solo cambiando tamaño o negrita de forma manual.
+      Para ordenar correctamente el documento, conviene utilizar los estilos de párrafo.
+    </p>
+
+    <div class="grid c2">
+      <div class="card">
+        <h4><span class="ico">A</span> Ruta en Google Docs</h4>
+        <p>Seleccioná el título y aplicá: <code>Formato → Estilos de párrafo</code>.</p>
+      </div>
+
+      <div class="card teal">
+        <h4><span class="ico">☰</span> Ventaja</h4>
+        <p>Al usar estilos, después podés generar un índice automático y mantener la estructura del documento.</p>
+      </div>
+    </div>
+
+    <table class="tabla">
+      <thead>
+        <tr>
+          <th>Nivel</th>
+          <th>Formato APA</th>
+          <th>Uso sugerido</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td><b>1</b></td>
+          <td style="text-align:center"><b>Centrado y en negrita</b></td>
+          <td>Título principal o secciones mayores.</td>
+        </tr>
+
+        <tr>
+          <td><b>2</b></td>
+          <td><b>Alineado a la izquierda y en negrita</b></td>
+          <td>Subtítulos principales.</td>
+        </tr>
+
+        <tr>
+          <td><b>3</b></td>
+          <td><b><i>Alineado a la izquierda, negrita y cursiva</i></b></td>
+          <td>Subdivisiones dentro de un subtítulo.</td>
+        </tr>
+
+        <tr>
+          <td><b>4</b></td>
+          <td style="padding-left:34px"><b>Con sangría, negrita y punto final.</b></td>
+          <td>Encabezado dentro del mismo párrafo.</td>
+        </tr>
+
+        <tr>
+          <td><b>5</b></td>
+          <td style="padding-left:34px"><b><i>Con sangría, negrita, cursiva y punto final.</i></b></td>
+          <td>Subnivel más específico dentro del párrafo.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip">
+      <b>Revisión práctica:</b> verificá que los títulos no estén subrayados, no tengan colores decorativos
+      y no se hayan creado solo aumentando el tamaño de la letra.
+    </div>
+  </div>
+</section>
+
+<section id="citas">
+  <div class="wrap">
+    <span class="kicker">Tema 4</span>
+    <h2>Revisión de citas dentro del documento</h2>
+
+    <p>
+      En esta parte no se explicará desde cero el sistema de citación APA.
+      La tarea será revisar si las ideas tomadas de otras fuentes están correctamente citadas
+      y si las citas textuales incluyen autor, año y página cuando corresponda.
+    </p>
+
+    <div class="grid c2">
+      <div class="card">
+        <h4><span class="ico">N</span> Cita narrativa</h4>
+        <p>El apellido del autor forma parte de la redacción: <b>Apellido (año)</b>.</p>
+        <div class="ejemplo">
+          <span class="et">Modelo</span>
+          Apellido (año) sostiene que la organización formal del documento facilita la lectura académica.
+        </div>
+      </div>
+
+      <div class="card">
+        <h4><span class="ico">P</span> Cita parentética</h4>
+        <p>La idea se expresa y la cita se coloca al final: <b>(Apellido, año)</b>.</p>
+        <div class="ejemplo">
+          <span class="et">Modelo</span>
+          La organización formal del documento facilita la lectura académica (Apellido, año).
+        </div>
+      </div>
+    </div>
+
+    <h3>Citas textuales</h3>
+
+    <p>
+      Cuando se copia una frase exacta de una fuente, debe escribirse entre comillas si tiene menos de 40 palabras
+      e incluir autor, año y página.
+    </p>
+
+    <div class="ejemplo">
+      <span class="et">Cita textual corta</span>
+      Apellido (año) afirma que “fragmento textual tomado de la fuente consultada” (p. 25).
+    </div>
+
+    <p>
+      Cuando el fragmento tiene 40 palabras o más, se coloca en bloque, sin comillas,
+      con sangría de 1.27 cm y doble espacio.
+    </p>
+
+    <div class="ejemplo" style="text-indent:24px">
+      <span class="et" style="text-indent:0">Cita en bloque</span>
+      Este espacio representa una cita textual extensa. En el documento real,
+      el estudiante deberá pegar el fragmento seleccionado, aplicar sangría a todo el bloque,
+      mantener el interlineado doble y colocar la referencia correspondiente al final.
+      (Apellido, año, p. ___)
+    </div>
+
+    <div class="tip">
+      <b>Durante la revisión:</b> toda cita textual debe tener página. Para una página se usa
+      <b>p.</b>; para varias páginas se usa <b>pp.</b>.
+    </div>
+  </div>
+</section>
+
+<section id="referencias" class="alt">
+  <div class="wrap">
+    <span class="kicker">Tema 5</span>
+    <h2>Lista de referencias</h2>
+
+    <p>
+      La lista de referencias permite identificar y recuperar las obras citadas en el texto.
+      En el taller se revisará que la lista esté correctamente ubicada, ordenada y formateada.
+    </p>
+
+    <div class="grid c2">
+      <div class="card">
+        <h4><span class="ico">↡</span> Formato general</h4>
+        <p>
+          Debe comenzar en una página nueva, con el título “Referencias” centrado y en negrita.
+          Las entradas se ordenan alfabéticamente.
+        </p>
+      </div>
+
+      <div class="card teal">
+        <h4><span class="ico">⚙</span> Sangría francesa</h4>
+        <p>
+          Se aplica desde: <code>Formato → Alinear y aplicar sangría → Opciones de sangría → Sangría especial → Francesa</code>.
+        </p>
+      </div>
+    </div>
+
+    <h3>Modelos de referencia</h3>
+
+    <table class="tabla">
+      <thead>
+        <tr>
+          <th>Tipo de fuente</th>
+          <th>Modelo APA 7</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td><b>Libro</b></td>
+          <td>Apellido, N. (año). <i>Título del libro</i>. Editorial.</td>
+        </tr>
+
+        <tr>
+          <td><b>Capítulo de libro</b></td>
+          <td>Apellido, N. (año). Título del capítulo. En N. Apellido (Ed.), <i>Título del libro</i> (pp. xx–xx). Editorial.</td>
+        </tr>
+
+        <tr>
+          <td><b>Artículo de revista</b></td>
+          <td>Apellido, N. (año). Título del artículo. <i>Nombre de la revista, volumen</i>(número), páginas. DOI o URL</td>
+        </tr>
+
+        <tr>
+          <td><b>Página web</b></td>
+          <td>Apellido, N. (día de mes de año). <i>Título de la página</i>. Nombre del sitio. URL</td>
+        </tr>
+
+        <tr>
+          <td><b>Video</b></td>
+          <td>Autor o canal. (fecha). <i>Título del video</i> [Video]. Plataforma. URL</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip">
+      <b>Control final:</b> en la lista de referencias solo deben aparecer las fuentes citadas en el texto.
+      Si una fuente no se usó, no corresponde incluirla.
+    </div>
+  </div>
+</section>
+
+<section id="herramientas">
+  <div class="wrap">
+    <span class="kicker">Tema 6</span>
+    <h2>Herramientas útiles de Google Docs</h2>
+
+    <p>
+      Google Docs ofrece varias opciones que facilitan el formateo académico.
+      Durante el taller se utilizarán herramientas concretas para dejar el documento listo para su entrega.
+    </p>
+
+    <div class="grid c3">
+      <div class="card">
+        <h4><span class="ico">1</span> Configuración de página</h4>
+        <p>Permite definir tamaño de hoja y márgenes antes de comenzar la edición final.</p>
+      </div>
+
+      <div class="card">
+        <h4><span class="ico">2</span> Estilos de párrafo</h4>
+        <p>Ayudan a organizar títulos y subtítulos de forma consistente.</p>
+      </div>
+
+      <div class="card">
+        <h4><span class="ico">3</span> Herramienta Citas</h4>
+        <p>Permite cargar fuentes y generar citas o bibliografía, aunque siempre debe revisarse.</p>
+      </div>
+    </div>
+
+    <div class="tip">
+      <b>Mirada crítica:</b> las herramientas automáticas ayudan, pero no reemplazan la revisión.
+      Antes de entregar, verificá manualmente fuente, sangría, títulos, citas y referencias.
+    </div>
+  </div>
+</section>
+
+<section id="practica" class="alt">
+  <div class="wrap">
+    <span class="kicker">Zona de práctica</span>
+    <h2>Taller de formateo en Google Docs</h2>
+
+    <p class="lead2">
+      La actividad central consiste en abrir el documento asignado en Google Docs
+      y transformarlo en un trabajo académico correctamente presentado.
+      El énfasis estará en el uso de las herramientas de edición, formato y revisión.
+    </p>
+
+    <div class="tool" id="checklist">
+      <h3>Lista de control: ¿mi documento está listo para entregar?</h3>
+
+      <p class="muted" style="font-size:15px">
+        Marcá cada punto a medida que lo aplicás en tu documento.
+      </p>
+
+      <div style="display:flex;justify-content:flex-end">
+        <span id="counter" style="font-size:14px;color:var(--gris)">0 / 12</span>
+      </div>
+
+      <div class="barra">
+        <div id="bar"></div>
+      </div>
+
+      <div id="list"></div>
+
+      <div class="finok" id="finok">
+        ¡El documento cumple con los principales aspectos de formato para la entrega!
+        Revisá una vez más el enlace y los permisos antes de compartirlo.
+      </div>
+    </div>
+
+    <h3 style="margin-top:40px">Antes y después</h3>
+
+    <p>
+      El mismo contenido puede verse informal o académico según cómo se configure.
+      Observá la diferencia entre un documento sin formato y uno preparado para entrega.
+    </p>
+
+    <div class="ba">
+      <div class="doc bad">
+        <div class="tag">✗ Sin formato académico</div>
+
+        <div class="page">
+          <div class="t1" style="font-size:18px;text-decoration:underline">Trabajo Práctico!!</div>
+
+          <p style="margin-bottom:8px">
+            Este documento tiene texto justificado, fuente decorativa, título informal,
+            ausencia de sangría y citas sin revisar.
+          </p>
+
+          <p>
+            Aunque el contenido pueda ser correcto, la presentación no responde a un formato académico uniforme.
+          </p>
+        </div>
+
+        <div class="note">Fuente informal · texto justificado · sin sangría · títulos sin estilo</div>
+      </div>
+
+      <div class="doc good">
+        <div class="tag">✓ Con formato académico</div>
+
+        <div class="page">
+          <div class="t1">Título del trabajo académico</div>
+
+          <p class="ind">
+            El documento utiliza una fuente uniforme, alineación izquierda, sangría de primera línea
+            e interlineado doble. Los títulos están organizados con estilos de párrafo.
+          </p>
+
+          <p class="ind">
+            Las citas y referencias se revisan antes de la entrega para asegurar coherencia,
+            claridad y presentación formal.
+          </p>
+        </div>
+
+        <div class="note">Fuente uniforme · alineación izquierda · sangría 1.27 cm · estilos aplicados</div>
+      </div>
+    </div>
+
+    <h3 style="margin-top:40px">Consigna del taller</h3>
+
+    <div class="card teal">
+      <h4><span class="ico">✓</span> Actividad práctica</h4>
+      <p>
+        Abrí el documento asignado en Google Docs y aplicá las herramientas de formato necesarias
+        para que quede listo para su entrega académica. Deberás configurar la página,
+        aplicar la fuente correspondiente, ordenar títulos y subtítulos, insertar número de página,
+        revisar sangrías, controlar citas y organizar la lista de referencias.
+      </p>
+    </div>
+
+    <table class="tabla">
+      <thead>
+        <tr>
+          <th>Parte del documento</th>
+          <th>Qué debe revisarse</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td><b>Portada</b></td>
+          <td>Título, estudiante, institución, unidad curricular, docente, fecha y número de página.</td>
+        </tr>
+
+        <tr>
+          <td><b>Formato general</b></td>
+          <td>Tamaño carta, márgenes de 2.54 cm, fuente admitida, interlineado doble y alineación izquierda.</td>
+        </tr>
+
+        <tr>
+          <td><b>Títulos</b></td>
+          <td>Uso de estilos de párrafo y jerarquía visual clara.</td>
+        </tr>
+
+        <tr>
+          <td><b>Citas</b></td>
+          <td>Autor, año y página cuando corresponda. Citas textuales entre comillas o en bloque.</td>
+        </tr>
+
+        <tr>
+          <td><b>Referencias</b></td>
+          <td>Página nueva, título centrado en negrita, orden alfabético y sangría francesa.</td>
+        </tr>
+
+        <tr>
+          <td><b>Entrega</b></td>
+          <td>Enlace compartido con permisos correctos y documento revisado antes de enviar.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="tip">
+      <b>Entrega:</b> compartí el enlace del documento de Google Docs con los permisos indicados por la docente.
+      Antes de entregar, verificá que pueda abrirse correctamente.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <h4>Sobre este recurso</h4>
+
+    <p>
+      Recurso Educativo Abierto creado para el laboratorio de Tecnologías Digitales,
+      orientado al uso práctico de Google Docs para la presentación de trabajos académicos
+      con formato APA 7.ª edición.
+    </p>
+
+    <p style="margin-top:10px">
+      Recurso elaborado a partir de criterios generales de formato APA 7.ª edición
+      y de materiales de consulta sobre escritura académica.
+    </p>
+
+    <div class="cc">
+      El diseño didáctico, las consignas y la organización de este recurso son de elaboración propia
+      y se comparten bajo licencia <b>Creative Commons Atribución-CompartirIgual 4.0 (CC BY-SA 4.0)</b>.
+      Los textos de consulta y obras mencionadas conservan sus respectivas fuentes y derechos.
+    </div>
+  </div>
+</footer>
+
+<a href="#inicio" class="volver">↑ Volver al inicio</a>
+
+<script>
+const items = [
+  ["Configuré el tamaño de página","Archivo → Configuración de página → Tamaño: Carta"],
+  ["Ajusté los márgenes","2.54 cm en los cuatro lados del documento"],
+  ["Apliqué una fuente válida","Arial 11 o Times New Roman 12 en todo el documento"],
+  ["Configuré el interlineado","Interlineado doble y sin espacio adicional entre párrafos"],
+  ["Alineé el texto a la izquierda","El margen derecho queda irregular, sin justificar"],
+  ["Apliqué sangría de primera línea","1.27 cm en los párrafos del cuerpo del texto"],
+  ["Inserté número de página","Esquina superior derecha, incluida la portada"],
+  ["Revisé la portada","Título centrado y en negrita; demás datos centrados, sin negrita"],
+  ["Organicé los títulos con estilos","Uso de estilos de párrafo en Google Docs"],
+  ["Revisé citas textuales","Autor, año y página cuando corresponde"],
+  ["Apliqué sangría francesa en referencias","Página nueva, título centrado en negrita y orden alfabético"],
+  ["Comprobé el enlace de entrega","El documento se puede abrir y tiene permisos correctos"]
+];
+
+const list = document.getElementById('list');
+const bar = document.getElementById('bar');
+const counter = document.getElementById('counter');
+const finok = document.getElementById('finok');
+
+let checked = 0;
+
+items.forEach(it => {
+  const row = document.createElement('div');
+  row.className = 'chk';
+
+  row.innerHTML =
+    '<div class="box">✓</div><div class="txt"><b>' +
+    it[0] +
+    '</b><span>' +
+    it[1] +
+    '</span></div>';
+
+  row.querySelector('.box').style.color = 'transparent';
+
+  row.addEventListener('click', () => {
+    const on = row.classList.toggle('on');
+    row.querySelector('.box').style.color = on ? '#fff' : 'transparent';
+    checked += on ? 1 : -1;
+    bar.style.width = Math.round(checked / items.length * 100) + '%';
+    counter.textContent = checked + ' / ' + items.length;
+    finok.style.display = checked === items.length ? 'block' : 'none';
+  });
+
+  list.appendChild(row);
+});
+</script>
+
+</body>
+</html>
