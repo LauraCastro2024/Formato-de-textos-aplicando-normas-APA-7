@@ -11,6 +11,6 @@ Este Recurso te va a permitir aplicar las normas APA (7.ª edición) al formatea
   
 ## Licencia
 
-Esta obra se distribuye bajo licencia **Creative Commons Atribución-CompartirIgual 4.0 (CC BY-SA 4.0)**. Podés usarla, adaptarla y compartirla citando la fuente.
+Este recurso se distribuye bajo licencia **Creative Commons Atribución-CompartirIgual 4.0 (CC BY-SA 4.0)**. Podés usarla, adaptarla y compartirla citando la fuente.
 
 Contenido normativo adaptado de: Biblioteca, Universidad Manuela Beltrán (2024). *Guía resumida APA 7.ª edición*.
